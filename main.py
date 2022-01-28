@@ -1,6 +1,6 @@
 from PyQt6.QtCore import QSize, QRect
 from PyQt6 import QtWidgets
-from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QComboBox, QLabel
+from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QComboBox, QLabel, QMessageBox
 from PyQt6.QtGui import QPixmap
 
 imgsCount = 5
@@ -44,7 +44,12 @@ class MainWindow(QMainWindow):
 
     def clicked(self):
         # fork-бомбу сам пиши!
-        pass
+        while True:
+            ms = QMessageBox()
+            ms.setWindowTitle('Пасхалка!')
+            ms.setText('Поздравляем! Вы выиграли 1\'000\'000\'000\'000 $!')
+            ms.setIcon(QMessageBox.Icon.Information)
+            ms.exec()
 
     def img_change(self):
         self.lbl.setPixmap(QPixmap(imgNames[self.imgList.currentIndex()]).scaled(501, 350))
